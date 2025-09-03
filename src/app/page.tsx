@@ -1,103 +1,165 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
+import React, { useState } from 'react';
+import Link from 'next/link';
+
+export default function HomePage() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
+    <div className="min-h-screen text-white relative overflow-hidden">
+      {/* Background Images - Responsive */}
+      <div className="absolute inset-0">
+        {/* Desktop Background */}
+        <div 
+          className="hidden lg:block absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('/assets/home/background-home-desktop.jpg')"
+          }}
         />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+        {/* Tablet Background */}
+        <div 
+          className="hidden md:block lg:hidden absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('/assets/home/background-home-tablet.jpg')"
+          }}
+        />
+        {/* Mobile Background */}
+        <div 
+          className="md:hidden absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('/assets/home/background-home-mobile.jpg')"
+          }}
+        />
+      </div>
+      
+      {/* Content */}
+      <div className="relative z-10">
+        {/* Navigation */}
+        <nav className="flex items-center justify-between p-6 md:p-8 lg:pl-12 lg:pr-0 lg:pt-8">
+          {/* Logo */}
+          <div className="w-10 h-10 md:w-12 md:h-12">
+            <img 
+              src="/assets/shared/logo.svg" 
+              alt="Space Tourism Logo" 
+              className="w-full h-full"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+          </div>
+          
+          {/* Desktop Line */}
+          <div className="hidden xl:block flex-1 h-px bg-white bg-opacity-25 mx-16 relative z-20" />
+          
+          {/* Mobile Menu Button */}
+          <button 
+            className="md:hidden w-6 h-6"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            Read our docs
-          </a>
+            <img 
+              src="/assets/shared/icon-hamburger.svg" 
+              alt="Menu" 
+              className="w-full h-full"
+            />
+          </button>
+          
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex bg-white bg-opacity-5 backdrop-blur-2xl px-8 lg:px-16 py-8 lg:py-10">
+            <ul className="flex space-x-8 lg:space-x-12 text-sm lg:text-base uppercase tracking-wider">
+              <li>
+                <Link href="/" className="border-b-2 border-white pb-8 transition-all">
+                  <span className="font-bold mr-2">00</span> Home
+                </Link>
+              </li>
+              <li>
+                <Link href="/destination" className="hover:border-b-2 hover:border-white hover:border-opacity-50 pb-8 transition-all">
+                  <span className="font-bold mr-2">01</span> Destination
+                </Link>
+              </li>
+              <li>
+                <Link href="/crew" className="hover:border-b-2 hover:border-white hover:border-opacity-50 pb-8 transition-all">
+                  <span className="font-bold mr-2">02</span> Crew
+                </Link>
+              </li>
+              <li>
+                <Link href="/technology" className="hover:border-b-2 hover:border-white hover:border-opacity-50 pb-8 transition-all">
+                  <span className="font-bold mr-2">03</span> Technology
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden fixed inset-0 bg-black bg-opacity-95 backdrop-blur-lg z-50">
+            <div className="flex justify-end p-6">
+              <button onClick={() => setIsMobileMenuOpen(false)}>
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            <ul className="flex flex-col space-y-8 px-8 mt-16 text-lg uppercase tracking-wider">
+              <li>
+                <Link href="/" className="block" onClick={() => setIsMobileMenuOpen(false)}>
+                  <span className="font-bold mr-3">00</span> Home
+                </Link>
+              </li>
+              <li>
+                <Link href="/destination" className="block" onClick={() => setIsMobileMenuOpen(false)}>
+                  <span className="font-bold mr-3">01</span> Destination
+                </Link>
+              </li>
+              <li>
+                <Link href="/crew" className="block" onClick={() => setIsMobileMenuOpen(false)}>
+                  <span className="font-bold mr-3">02</span> Crew
+                </Link>
+              </li>
+              <li>
+                <Link href="/technology" className="block" onClick={() => setIsMobileMenuOpen(false)}>
+                  <span className="font-bold mr-3">03</span> Technology
+                </Link>
+              </li>
+            </ul>
+          </div>
+        )}
+
+        {/* Main Content */}
+        <div className="container mx-auto px-6 md:px-8 lg:px-12 py-8 md:py-16 lg:py-24">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center min-h-[70vh] lg:min-h-[75vh]">
+            {/* Left Content */}
+            <div className="space-y-4 md:space-y-6 lg:space-y-8 text-center lg:text-left">
+              <p className="text-blue-300 text-base md:text-lg lg:text-xl xl:text-2xl uppercase tracking-widest font-light">
+                So, you want to travel to
+              </p>
+              
+              <h1 className="text-7xl md:text-8xl lg:text-9xl xl:text-[150px] font-serif uppercase leading-none">
+                Space
+              </h1>
+              
+              <p className="text-blue-100 text-base md:text-lg lg:text-xl leading-relaxed max-w-md mx-auto lg:mx-0">
+                Let's face it; if you want to go to space, you might as well genuinely go to 
+                outer space and not hover kind of on the edge of it. Well sit back, and relax 
+                because we'll give you a truly out of this world experience!
+              </p>
+            </div>
+
+            {/* Right Content - Explore Button */}
+            <div className="flex justify-center lg:justify-end items-center">
+              <Link href="/destination">
+                <button className="group relative w-36 h-36 md:w-48 md:h-48 lg:w-64 lg:h-64 xl:w-72 xl:h-72">
+                  {/* Hover Ring */}
+                  <div className="absolute inset-0 rounded-full bg-white bg-opacity-0 group-hover:bg-opacity-10 transform scale-100 group-hover:scale-150 transition-all duration-500 ease-out" />
+                  
+                  {/* Main Button */}
+                  <div className="relative w-full h-full bg-white text-black rounded-full flex items-center justify-center text-lg md:text-xl lg:text-2xl xl:text-3xl font-serif uppercase tracking-wider transform group-hover:scale-105 transition-all duration-300">
+                    Explore
+                  </div>
+                </button>
+              </Link>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </div>
     </div>
   );
 }
