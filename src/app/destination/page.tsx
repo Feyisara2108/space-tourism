@@ -89,26 +89,26 @@ export default function DestinationPage() {
             />
           </button>
           
-          <div className="hidden md:flex bg-white bg-opacity-5 backdrop-blur-2xl px-8 lg:px-16 py-8 lg:py-10">
+          <div className="hidden md:flex bg-black bg-opacity-5 backdrop-blur-2xl px-8 lg:px-16 py-8 lg:py-10">
             <ul className="flex space-x-8 lg:space-x-12 text-sm lg:text-base uppercase tracking-wider">
               <li>
                 <Link href="/" className="hover:border-b-2 hover:border-white hover:border-opacity-50 pb-8 transition-all">
-                  <span className="font-bold mr-2">00</span> Home
+                  <span className="font-Barlow Condensed mr-2">00</span> Home
                 </Link>
               </li>
               <li>
                 <Link href="/destination" className="border-b-2 border-white pb-8 transition-all">
-                  <span className="font-bold mr-2">01</span> Destination
+                  <span className="font-Barlow Condensed mr-2">01</span> Destination
                 </Link>
               </li>
               <li>
                 <Link href="/crew" className="hover:border-b-2 hover:border-white hover:border-opacity-50 pb-8 transition-all">
-                  <span className="font-bold mr-2">02</span> Crew
+                  <span className="font-Barlow Condensed mr-2">02</span> Crew
                 </Link>
               </li>
               <li>
                 <Link href="/technology" className="hover:border-b-2 hover:border-white hover:border-opacity-50 pb-8 transition-all">
-                  <span className="font-bold mr-2">03</span> Technology
+                  <span className="font-Barlow Condensed mr-2">03</span> Technology
                 </Link>
               </li>
             </ul>
@@ -128,22 +128,22 @@ export default function DestinationPage() {
             <ul className="flex flex-col space-y-8 px-8 mt-16 text-lg uppercase tracking-wider">
               <li>
                 <Link href="/" className="block" onClick={() => setIsMobileMenuOpen(false)}>
-                  <span className="font-bold mr-3">00</span> Home
+                  <span className="font-Barlow Condensed mr-3">00</span> Home
                 </Link>
               </li>
               <li>
                 <Link href="/destination" className="block text-white border-r-2 border-white pr-4" onClick={() => setIsMobileMenuOpen(false)}>
-                  <span className="font-bold mr-3">01</span> Destination
+                  <span className="font-Barlow Condensed mr-3">01</span> Destination
                 </Link>
               </li>
               <li>
                 <Link href="/crew" className="block" onClick={() => setIsMobileMenuOpen(false)}>
-                  <span className="font-bold mr-3">02</span> Crew
+                  <span className="font-Barlow Condensed mr-3">02</span> Crew
                 </Link>
               </li>
               <li>
                 <Link href="/technology" className="block" onClick={() => setIsMobileMenuOpen(false)}>
-                  <span className="font-bold mr-3">03</span> Technology
+                  <span className="font-Barlow Condensed mr-3">03</span> Technology
                 </Link>
               </li>
             </ul>
@@ -154,7 +154,7 @@ export default function DestinationPage() {
         <div className="container mx-auto px-6 md:px-8 lg:px-12 py-8 md:py-12 lg:py-16">
           {/* Page Title */}
           <h1 className="text-base md:text-xl lg:text-2xl uppercase tracking-widest mb-8 md:mb-12 lg:mb-16 text-center lg:text-left">
-            <span className="font-bold text-gray-500 mr-4">01</span>
+            <span className="font-Barlow Condensed text-gray-500 mr-4">01</span>
             Pick your destination
           </h1>
 
@@ -191,12 +191,12 @@ export default function DestinationPage() {
               </div>
 
               {/* Planet Name */}
-              <h2 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif uppercase">
+              <h2 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bellefair uppercase">
                 {currentDestination.name}
               </h2>
 
               {/* Description */}
-              <p className="text-blue-100 text-base md:text-lg leading-relaxed max-w-md mx-auto lg:mx-0">
+              <p className="text-blue-100 text-base font-barlow md:text-lg leading-relaxed max-w-md mx-auto lg:mx-0">
                 {currentDestination.description}
               </p>
 
@@ -206,18 +206,18 @@ export default function DestinationPage() {
               {/* Stats */}
               <div className="grid grid-cols-2 gap-8 lg:gap-16 max-w-md mx-auto lg:mx-0">
                 <div className="space-y-2">
-                  <p className="text-blue-300 text-sm uppercase tracking-wider">
+                  <p className="text-blue-300 font-barlow-condensed text-sm uppercase tracking-wider">
                     Avg. Distance
                   </p>
-                  <p className="text-xl md:text-2xl lg:text-3xl font-serif uppercase">
+                  <p className="text-xl md:text-2xl lg:text-3xl font-bellefair uppercase">
                     {currentDestination.distance}
                   </p>
                 </div>
                 <div className="space-y-2">
-                  <p className="text-blue-300 text-sm uppercase tracking-wider">
+                  <p className="text-blue-300 font-barlow-condensed text-sm uppercase tracking-wider">
                     Est. Travel Time
                   </p>
-                  <p className="text-xl md:text-2xl lg:text-3xl font-serif uppercase">
+                  <p className="text-xl md:text-2xl lg:text-3xl font-bellefair uppercase">
                     {currentDestination.travel}
                   </p>
                 </div>

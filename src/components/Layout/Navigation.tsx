@@ -185,7 +185,7 @@ export const Navigation: React.FC = () => {
         {/* Tablet Navigation */}
         <div className="hidden md:block lg:hidden bg-white/5 backdrop-blur-md px-8 py-6">
           <div className="flex space-x-8">
-            {navigationItems.map((item, index) => (
+            {navigationItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}

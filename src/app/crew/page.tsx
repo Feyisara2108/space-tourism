@@ -8,7 +8,7 @@ const crewMembers = [
     name: "Douglas Hurley",
     role: "Commander",
     image: "/assets/crew/image-douglas-hurley.png",
-    bio: "Douglas Gerald Hurley is an American engineer, former Marine Corps pilot and former NASA astronaut. He was the commander of the final flight of the Space Shuttle program, shuttle mission STS-135, and will command the first crewed flight of the SpaceX Dragon 2."
+    bio: "Douglas Gerald Hurley is an American engineer, former Marine Corps pilot and former NASA astronaut. He launched into space for the third time as commander of Crew Dragon Demo-2."
   },
   {
     name: "Mark Shuttleworth",
@@ -85,26 +85,26 @@ export default function CrewPage() {
             />
           </button>
           
-          <div className="hidden md:flex bg-white bg-opacity-5 backdrop-blur-2xl px-8 lg:px-16 py-8 lg:py-10">
+          <div className="hidden md:flex bg-black bg-opacity-5 backdrop-blur-2xl px-8 lg:px-16 py-8 lg:py-10">
             <ul className="flex space-x-8 lg:space-x-12 text-sm lg:text-base uppercase tracking-wider">
               <li>
                 <Link href="/" className="hover:border-b-2 hover:border-white hover:border-opacity-50 pb-8 transition-all">
-                  <span className="font-bold mr-2">00</span> Home
+                  <span className="font-barlow-condensed mr-2">00</span> Home
                 </Link>
               </li>
               <li>
                 <Link href="/destination" className="hover:border-b-2 hover:border-white hover:border-opacity-50 pb-8 transition-all">
-                  <span className="font-bold mr-2">01</span> Destination
+                  <span className="font-barlow-condensed mr-2">01</span> Destination
                 </Link>
               </li>
               <li>
                 <Link href="/crew" className="border-b-2 border-white pb-8 transition-all">
-                  <span className="font-bold mr-2">02</span> Crew
+                  <span className="font-barlow-condensed mr-2">02</span> Crew
                 </Link>
               </li>
               <li>
                 <Link href="/technology" className="hover:border-b-2 hover:border-white hover:border-opacity-50 pb-8 transition-all">
-                  <span className="font-bold mr-2">03</span> Technology
+                  <span className="font-barlow-condensed mr-2">03</span> Technology
                 </Link>
               </li>
             </ul>
@@ -124,22 +124,22 @@ export default function CrewPage() {
             <ul className="flex flex-col space-y-8 px-8 mt-16 text-lg uppercase tracking-wider">
               <li>
                 <Link href="/" className="block" onClick={() => setIsMobileMenuOpen(false)}>
-                  <span className="font-bold mr-3">00</span> Home
+                  <span className="font-barlow-condensed mr-3">00</span> Home
                 </Link>
               </li>
               <li>
                 <Link href="/destination" className="block" onClick={() => setIsMobileMenuOpen(false)}>
-                  <span className="font-bold mr-3">01</span> Destination
+                  <span className="font-barlow-condensed mr-3">01</span> Destination
                 </Link>
               </li>
               <li>
                 <Link href="/crew" className="block text-white border-r-2 border-white pr-4" onClick={() => setIsMobileMenuOpen(false)}>
-                  <span className="font-bold mr-3">02</span> Crew
+                  <span className="font-barlow-condensed mr-3">02</span> Crew
                 </Link>
               </li>
               <li>
                 <Link href="/technology" className="block" onClick={() => setIsMobileMenuOpen(false)}>
-                  <span className="font-bold mr-3">03</span> Technology
+                  <span className="font-barlow-condensed mr-3">03</span> Technology
                 </Link>
               </li>
             </ul>
@@ -150,7 +150,7 @@ export default function CrewPage() {
         <div className="container mx-auto px-6 md:px-8 lg:px-12 py-8 md:py-12 lg:py-16">
           {/* Page Title */}
           <h1 className="text-base md:text-xl lg:text-2xl uppercase tracking-widest mb-8 md:mb-12 lg:mb-16 text-center lg:text-left">
-            <span className="font-bold text-gray-500 mr-4">02</span>
+            <span className="font-barlow-condensed text-gray-500 mr-4">02</span>
             Meet your crew
           </h1>
 
@@ -158,17 +158,17 @@ export default function CrewPage() {
             {/* Left Content - Crew Info */}
             <div className="text-center lg:text-left space-y-6 lg:space-y-8 order-2 lg:order-1">
               {/* Role */}
-              <h3 className="text-xl md:text-2xl lg:text-3xl font-serif uppercase text-gray-400">
+              <h3 className="text-xl md:text-2xl lg:text-3xl font-bellefair uppercase text-gray-400">
                 {currentCrew.role}
               </h3>
 
               {/* Name */}
-              <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-serif uppercase">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bellefair uppercase">
                 {currentCrew.name}
               </h2>
 
               {/* Bio */}
-              <p className="text-blue-100 text-base md:text-lg leading-relaxed max-w-md mx-auto lg:mx-0">
+              <p className="text-blue-100 text-base font-Barlow md:text-lg leading-relaxed max-w-md mx-auto lg:mx-0">
                 {currentCrew.bio}
               </p>
 
